@@ -13,8 +13,9 @@ public class TC002_LoginTest extends BaseClass{
 	@Test(groups={"Sanity","Master"})
 	public void verify_login() {
 		logger.info("*****   Started TC_002 LoginTest      ******");
-		//Home Page
+		
 		try {
+		//Home Page
 		HomePage hp = new HomePage(driver);
 		hp.clickMyaccount();
 		hp.clickLogin();

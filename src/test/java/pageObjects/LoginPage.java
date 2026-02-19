@@ -3,6 +3,7 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.annotations.BeforeMethod;
 
 public class LoginPage extends BasePage{
 
@@ -27,6 +28,12 @@ public class LoginPage extends BasePage{
 	
 	public void clickLogin() {
 		sbtBtnLogin.click();
+	}
+	
+	public void clicklogin123(String email, String pwd) {
+		setEmailAddress(email);
+		setPassword(pwd);
+		clickLogin();
 	}
 	
 }
