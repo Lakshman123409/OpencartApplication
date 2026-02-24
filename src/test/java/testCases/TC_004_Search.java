@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
 import pageObjects.MyAccountPage;
+import pageObjects.ShoppingCart;
 import testBase.BaseClass;
 
 public class TC_004_Search extends BaseClass {
@@ -32,7 +33,17 @@ public class TC_004_Search extends BaseClass {
 		ma.setSearchData();
 		ma.clickSearchButton();
 		ma.verifyProduct();
+		Assert.assertEquals(ma.verifyProductName(), "iPhone");
+		ma.clickAddToCart();
+		ma.navigateToMessage();
+		String message=ma.verifyMsgBox();
+		Assert.assertEquals(message, "Success: You have added iPhone to your shopping cart!\n×");
+		ma.clickShoppingCart();
+		Thread.sleep(3000);
 		
+		ShoppingCart sc = new ShoppingCart(driver);
+		sc.verifyShoppingCartTitle();
+		Assert.assertEquals(sc.verifyProductDetails(), "$123.20");
 		
 		Thread.sleep(3000);
 		
