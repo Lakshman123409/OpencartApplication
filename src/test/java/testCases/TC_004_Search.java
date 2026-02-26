@@ -43,8 +43,14 @@ public class TC_004_Search extends BaseClass {
 		
 		ShoppingCart sc = new ShoppingCart(driver);
 		sc.verifyShoppingCartTitle();
-		Assert.assertEquals(sc.verifyProductDetails(), "$123.20");
+		Assert.assertEquals(sc.verifyProductDetails()[0], "iPhone");
+		Assert.assertEquals(sc.verifyProductDetails()[1], "iPhone ***");
+		Assert.assertEquals(sc.verifyProductDetails()[2], "product 11");
+		Assert.assertEquals(sc.verifyProductDetails()[3], "1");
+		Assert.assertEquals(sc.verifyProductDetails()[4], "$123.20");
+		Assert.assertEquals(sc.verifyProductDetails()[5], "$123.20");
 		
+		sc.deleteProduct();
 		Thread.sleep(3000);
 		
 	}
